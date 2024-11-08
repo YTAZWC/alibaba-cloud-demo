@@ -29,13 +29,13 @@ spring:
         file-extension: yml
         username: nacos
         password: nacos
-    openfeign:
-      client:
-        config:
-          student: # default 表示默认的 Feign 客户端配置即所有未明确指定的配置
-            connectTimeout: 5000 # 连接超时时间5秒
-            readTimeout: 5000 # 读取数据超时时间5秒
-            logger-level: full # 日志级别设置为 full 详细信息
+#    openfeign:
+#      client:
+#        config:
+#          student: # default 表示默认的 Feign 客户端配置即所有未明确指定的配置
+#            connectTimeout: 5000 # 连接超时时间5秒
+#            readTimeout: 5000 # 读取数据超时时间5秒
+#            logger-level: full # 日志级别设置为 full 详细信息
 logging:
   level:
     top.ytazwc.alibaba.feign: debug # 设置包的日志级别
