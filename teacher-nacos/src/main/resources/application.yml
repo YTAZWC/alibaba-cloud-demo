@@ -2,10 +2,14 @@
 server:
   port: 9091
 spring:
+  config:
+    import:
+      - nacos:${spring.cloud.nacos.discovery.service}.${spring.cloud.nacos.config.file-extension} # 引入nacos远程配置
+      - nacos:${spring.cloud.nacos.discovery.service}.properties # 引入nacos远程配置
   cloud:
     nacos:
       discovery:
-        server-addr: 172.20.192.1:8848 # Nacos 服务器地址 连接到指定 nacos 服务
+        server-addr: 192.168.112.1:8848 # Nacos 服务器地址 连接到指定 nacos 服务
         namespace: 77fa154c-5a21-4694-b2ac-db6c0e07b077 # 命名空间 隔离不同环境配置和服务注册
         # group: # 服务分组 用于逻辑分组
         # cluster-name: # 集群名称
@@ -17,5 +21,12 @@ spring:
         port: 9091 # 本服务端口号
         weight: 1 # 权重,用于负载均衡,可以配置不同实例的权重,影响调用的分发比例
         ephemeral: true # 是否为临时实例,即是否自动摘除不健康实例
-
+      config:
+        server-addr: 192.168.112.1:8848 # nacos 服务器地址
+        namespace: 07398f4f-ed3d-48aa-876d-43ad71947670 # 命名空间
+#        group: # 服务分组
+#        cluster-name: # 集群名称
+        file-extension: yml
+        username: nacos
+        password: nacos
 
