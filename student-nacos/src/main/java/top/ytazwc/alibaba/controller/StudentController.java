@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     @GetMapping("/get")
-    public String getStudent() {
+    public String getStudent() throws InterruptedException {
+        // 测试远程请求超时
+//        Thread.sleep(6000);
         return "student";
     }
 
