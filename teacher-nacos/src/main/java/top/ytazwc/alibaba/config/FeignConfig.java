@@ -2,6 +2,7 @@ package top.ytazwc.alibaba.config;
 
 import feign.Logger;
 import feign.Request.Options;
+import feign.codec.Decoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -27,6 +28,12 @@ public class FeignConfig {
     public Logger.Level feignLoggerLevel() {
         // 设置日志级别为详细
         return Logger.Level.FULL;
+    }
+
+    // 获取默认的解码器
+    @Bean
+    public Decoder feignDecoder() {
+        return new Decoder.Default();
     }
 
 }
