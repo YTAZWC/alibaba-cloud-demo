@@ -4,6 +4,7 @@ import feign.Logger;
 import feign.Request.Options;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * @author 花木凋零成兰
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @description 配置openfeign日志和超时与读取时间
  */
 @Configuration
+@Import({FeignInterceptorConfig.class})
 public class FeignConfig {
 
     @Bean

@@ -5,7 +5,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.112.1:8848 # Nacos 服务器地址 连接到指定 nacos 服务
+        server-addr: 172.17.64.1:8848 # Nacos 服务器地址 连接到指定 nacos 服务
         namespace: 77fa154c-5a21-4694-b2ac-db6c0e07b077 # 命名空间 隔离不同环境配置和服务注册
         # group: # 服务分组 用于逻辑分组
         # cluster-name: # 集群名称
