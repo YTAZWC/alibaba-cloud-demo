@@ -13,6 +13,7 @@
         <module>teacher-nacos</module>
         <module>student-nacos</module>
         <module>sentinel-01</module>
+        <module>sentinel-alibaba-01</module>
     </modules>
 
     <properties>
