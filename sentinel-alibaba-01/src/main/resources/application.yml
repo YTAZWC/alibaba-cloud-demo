@@ -2,3 +2,11 @@
 server:
   port: 9093
 
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080   # 控制台地址
+  application:
+    name: sentinel-alibaba-01  # 应用名称
+
