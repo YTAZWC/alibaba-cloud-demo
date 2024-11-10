@@ -34,7 +34,7 @@ public class SentinelTestController {
     public String a() {
         testService.test();
         // 添加异常 测试熔断规则
-        int a = 1/0;
+//        int a = 1/0;
         return "sentinel A success!";
     }
 

@@ -1,0 +1,16 @@
+[
+    {
+        // 资源名
+        "resource": "sentinel/a",
+        // 针对请求来源 default表示不区分来源
+        "limitApp": "default",
+        // 流控模式，0-直接，1-关联，2-链路
+        "strategy": 0,
+        // 限流阈值类型，1-QPS，0-并发线程数
+        "grade": 1,
+        // 流控效果，0-快速失败，1-Warm Up(预热模式)，2-排队等待
+        "controlBehavior": 0,
+        // 阈值
+        "count": 10
+    }
+]
