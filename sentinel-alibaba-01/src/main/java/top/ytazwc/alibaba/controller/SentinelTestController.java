@@ -1,7 +1,10 @@
 package top.ytazwc.alibaba.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.ytazwc.alibaba.service.TestService;
@@ -39,6 +42,19 @@ public class SentinelTestController {
     public String b() {
         testService.test();
         return "sentinel B success!";
+    }
+
+    // 测试热点参数限流
+    @GetMapping("/id/{id}")
+    @SentinelResource(value = "id", blockHandler = "handlerBlock")
+    public String id(@PathVariable("id") int id) {
+        System.out.println("id: " + id);
+        return "sentinel id success ... ";
+    }
+
+    private String handlerBlock(@PathVariable("id") int id, BlockException ex) {
+        // 被流控时的处理逻辑
+        return "sentinel id blocked ...";
     }
 
 }
