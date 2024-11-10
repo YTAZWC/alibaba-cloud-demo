@@ -1,13 +1,13 @@
-package top.ytazwc.alibaba.seata02;
+package top.ytazwc.alibaba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Seata02Application {
+public class Seata01Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Seata02Application.class, args);
+        SpringApplication.run(Seata01Application.class, args);
     }
 
 }

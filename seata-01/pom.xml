@@ -61,7 +61,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>top.ytazwc.alibaba.seata01.Seata01Application</mainClass>
+                    <mainClass>top.ytazwc.alibaba.Seata01Application</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
