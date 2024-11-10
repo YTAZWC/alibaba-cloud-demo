@@ -1,4 +1,46 @@
 # 应用服务 WEB 访问端口
 server:
   port: 9094
+spring:
+  application:
+    name: seata-01
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: seata-01
+        port: 9094
+        username: nacos
+        password: nacos
+  datasource:
+    url: jdbc:mysql//localhost:3306/order_db
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+seata:
+  enabled: true # 开启seata
+  tx-service-group: default_tx_group # 事务分组
+  application-id: seata-01 # 应用id
+  config:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      application: seata-server-01
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      cluster: default
+mybatis:
+  mapper-locations: classpath:mapper/*xml
+  configuration:
+    map-underscore-to-camel-case: true
+
 
