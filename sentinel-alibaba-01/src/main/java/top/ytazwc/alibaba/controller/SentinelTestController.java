@@ -21,13 +21,17 @@ public class SentinelTestController {
     private TestService testService;
 
     @GetMapping("/getTest")
-    public String getTest() {
+    public String getTest() throws InterruptedException {
+        // 增加请求延迟 方便测试熔断规则
+        Thread.sleep(2000);
         return "sentinel success";
     }
 
     @GetMapping("/a")
     public String a() {
         testService.test();
+        // 添加异常 测试熔断规则
+        int a = 1/0;
         return "sentinel A success!";
     }
 
