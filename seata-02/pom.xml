@@ -3,28 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>top.ytazwc.alibaba</groupId>
-    <artifactId>alibaba-cloud-demo</artifactId>
+    <artifactId>seata-02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>alibaba-cloud-demo</name>
-    <description>alibaba-cloud-demo</description>
-    <packaging>pom</packaging>
+    <name>seata-02</name>
+    <description>seata-02</description>
 
-    <modules>
-        <module>teacher-nacos</module>
-        <module>student-nacos</module>
-        <module>sentinel-01</module>
-        <module>sentinel-alibaba-01</module>
-        <module>seata-01</module>
-        <module>seata-02</module>
-    </modules>
+    <parent>
+        <groupId>top.ytazwc.alibaba</groupId>
+        <artifactId>alibaba-cloud-demo</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>3.0.2</spring-boot.version>
-        <spring-cloud-version>2022.0.0</spring-cloud-version>
-        <spring-cloud-alibaba-version>2022.0.0.0</spring-cloud-alibaba-version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,7 +31,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -45,20 +38,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -82,7 +61,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>top.ytazwc.alibaba.AlibabaCloudDemoApplication</mainClass>
+                    <mainClass>top.ytazwc.alibaba.seata01.Seata01Application</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
