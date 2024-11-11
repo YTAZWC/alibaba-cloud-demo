@@ -21,9 +21,10 @@
         <spring-boot.version>3.0.2</spring-boot.version>
     </properties>
     <dependencies>
+        <!-- 此时不能依赖于spring-boot-starter-web 会出现冲突 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>

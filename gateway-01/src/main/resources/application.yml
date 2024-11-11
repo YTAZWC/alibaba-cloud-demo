@@ -1,4 +1,18 @@
 # 应用服务 WEB 访问端口
 server:
   port: 9096
-
+spring:
+  application:
+    name: gateway-01
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: gateway-01
+        password: nacos
+        username: nacos
+        port: 9096
+    gateway:
+      discovery:
+        locator:  # 配置服务发现的定位器
+          enabled: true # 启用nacos动态路由, 允许从Nacos注册中心动态获取路由信息
