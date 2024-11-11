@@ -8,7 +8,7 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: seata-01
+        service: order-service
         port: 9094
         username: nacos
         password: nacos
