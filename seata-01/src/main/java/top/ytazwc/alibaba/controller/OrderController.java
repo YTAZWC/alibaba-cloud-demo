@@ -1,8 +1,10 @@
 package top.ytazwc.alibaba.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 import top.ytazwc.alibaba.bean.Order;
 import top.ytazwc.alibaba.service.OrderService;
 
@@ -16,7 +18,8 @@ import java.util.Map;
  * @description
  */
 @RestController
-@RequestMapping("/order")
+//@RequestMapping("/order")
+@RequestMapping("/new-path")
 public class OrderController {
 
     @Autowired
@@ -31,6 +34,12 @@ public class OrderController {
     @GetMapping("/getHeaders")
     public Map<String, String> getHeaders(@RequestHeader Map<String, String> headers) {
         return headers;
+    }
+
+    @GetMapping("/test-rewrite")
+    public Mono<String> testRewritePath(HttpServletRequest request) {
+        String requestPath = request.getRequestURI();
+        return Mono.just("Request Path: " + requestPath);
     }
 
 }
