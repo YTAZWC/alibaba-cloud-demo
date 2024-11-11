@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CORS Test</title>
+</head>
+<body>
+<button id="sendRequest">Send Request</button>
+<div id="response"></div>
+<script>
+    document.getElementById("sendRequest").addEventListener("click", () => {
+        fetch("http://localhost:9096/order-service/order/getHeaders")
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            })
+            .then(data => {
+                document.getElementById("response").textContent = `Response: ${data}`;
+            })
+            .catch(error => {
+                document.getElementById("response").textContent = `Error: ${error.message}`;
+            });
+    });
+</script>
+</body>
+</html>

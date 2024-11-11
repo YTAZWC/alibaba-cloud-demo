@@ -13,6 +13,15 @@ spring:
         username: nacos
         port: 9096
     gateway:
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有路径
+            allowedOrigins: "*"  # 允许所有来源域
+            # 允许来源域的请求方法
+            allowedMethods: "GET, POST, PUT, DELETE"
+            allowedHeaders: "*"  # 允许所有请求头部
+            maxAge: 3600   # 预检请求的最大缓存时间为3600秒
 #      discovery:
 #        locator:  # 配置服务发现的定位器
 #          enabled: true # 启用nacos动态路由, 允许从Nacos注册中心动态获取路由信息

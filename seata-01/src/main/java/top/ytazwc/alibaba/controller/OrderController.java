@@ -2,12 +2,11 @@ package top.ytazwc.alibaba.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.ytazwc.alibaba.bean.Order;
 import top.ytazwc.alibaba.service.OrderService;
+
+import java.util.Map;
 
 /**
  * @author 花木凋零成兰
@@ -27,6 +26,11 @@ public class OrderController {
     public ResponseEntity<String> createOrder(@RequestBody Order order) {
         orderService.createOrder(order);
         return ResponseEntity.ok("Order created successfully !");
+    }
+
+    @GetMapping("/getHeaders")
+    public Map<String, String> getHeaders(@RequestHeader Map<String, String> headers) {
+        return headers;
     }
 
 }
