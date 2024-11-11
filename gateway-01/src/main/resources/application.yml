@@ -43,8 +43,13 @@ spring:
             # StripPrefix过滤器,用于重写请求路径, 通常用于去掉请求路径的前缀,以便请求路由到不同的目标URI; 允许请求路由到正确的后端服务中
             - StripPrefix=1 # 从请求路径中删除一个前缀
             # AddRequestHeader该过滤器 用于在请求中添加头信息, 可以将多个自定义头信息添加到请求中; 对于需要向请求添加额外信息的场景非常有用
-            - AddRequestHeader=X-Custom-Header, Custom-Value
+#            - AddRequestHeader=X-Custom-Header, Custom-Value
             # AddResponseHeader在响应中添加头信息
             - AddResponseHeader=X-Custom-Header, Custom-Value
             # RewritePath 重写请求路径, 方便请求路由到不同的目标URI
             - RewritePath=/order/(?<segment>.*), /new-path/$\{segment}  # 将所有匹配路径的请求的路径中的/order/替换为/new-path/
+            # 另一种方式配置过滤器 并配置自定义过滤器
+            - name: MyCustom
+              args:
+                customHeaderName: yt
+                customHeaderValue: aaa
