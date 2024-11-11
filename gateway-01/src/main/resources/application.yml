@@ -13,6 +13,14 @@ spring:
         username: nacos
         port: 9096
     gateway:
-      discovery:
-        locator:  # 配置服务发现的定位器
-          enabled: true # 启用nacos动态路由, 允许从Nacos注册中心动态获取路由信息
+#      discovery:
+#        locator:  # 配置服务发现的定位器
+#          enabled: true # 启用nacos动态路由, 允许从Nacos注册中心动态获取路由信息
+      #
+      routes:
+        - id: order-service # 路由规则的唯一标识 可以在配置中引用
+          uri: lb://order-service # 目标URI 请求将被转发到名为order-service的负载均衡后端服务
+          predicates:
+            - Path=/order-service/** # 当请求的路径匹配"/ord/**"时,应用该路由规则
+          filters:
+            - StripPrefix=1 # 从请求路径中删除一个前缀
