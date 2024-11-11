@@ -31,5 +31,11 @@ spring:
           uri: lb://order-service # 目标URI 请求将被转发到名为order-service的负载均衡后端服务
           predicates:
             - Path=/order-service/** # 当请求的路径匹配"/ord/**"时,应用该路由规则
+#            - Method=GET  # 当请求方法为GET时 可以应用该路由规则
+            - Host=example.com, localhost** # 当请求的主机名为"example.com/localhost**"时,应用该路由规则
+            # Header断言 基于请求头信息进行路由,可以根据请求头内容决定路由到哪个后端服务
+            - Header=X-Requested-With, XMLHttpRequest  # 当请求头中包含"X-Requested-With"并且值为"XMLHttpRequest"时,应用该路由规则
+            # Query断言 根据请求的查询参数进行路由, 能够根据请求中的查询参数来路由请求
+            - Query=param, value # 当请求的查询参数中包含名为"param"的参数,且值为"value"时,应用这个路由规则
           filters:
             - StripPrefix=1 # 从请求路径中删除一个前缀
