@@ -34,6 +34,7 @@ public class InventoryServiceImpl implements InventoryService {
             inventory.setUpdateTime(new Date());
             inventory.setUsed(used);
             inventory.setResidue(residue);
+            inventoryMapper.updateInventory(inventory);
         } else {
             throw new RuntimeException("商品不存在!!!");
         }

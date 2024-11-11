@@ -13,7 +13,7 @@
             <if test="residue != null">
                 residue = #{residue},
             </if>
-            <if test="update_time != null">
+            <if test="updateTime != null">
                 update_time = #{updateTime},
             </if>
         </set>

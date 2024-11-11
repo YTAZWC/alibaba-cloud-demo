@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.createOrder(order);
         // 调用库存服务减少库存
         inventoryFeignClient.reduceInventory(order.getProductId(), order.getCount());
-        int i = 1/0;
+//        int i = 1/0;
     }
 
 }

@@ -1,5 +1,6 @@
 package top.ytazwc.alibaba.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import top.ytazwc.alibaba.service.InventoryService;
  */
 @RestController
 @RequestMapping("/inventory")
+@Slf4j
 public class InventoryController {
 
     @Autowired
@@ -24,6 +26,7 @@ public class InventoryController {
 
     @PostMapping("/reduce")
     public ResponseEntity<String> reduceInventory(@RequestParam("productId") Long productId, @RequestParam("quantity") Integer quantity) {
+        log.warn("start reduce inventory ... ");
         inventoryService.reduceInventory(productId, quantity);
         return ResponseEntity.ok("Inventory reduced successfully !");
     }
