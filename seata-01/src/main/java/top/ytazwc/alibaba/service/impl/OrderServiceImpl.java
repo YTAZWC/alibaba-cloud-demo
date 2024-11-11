@@ -1,8 +1,8 @@
 package top.ytazwc.alibaba.service.impl;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import top.ytazwc.alibaba.bean.Order;
 import top.ytazwc.alibaba.feign.InventoryFeignClient;
 import top.ytazwc.alibaba.mapper.OrderMapper;
@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private InventoryFeignClient inventoryFeignClient;
 
-    @Transactional
+    @GlobalTransactional    // 全局分布式事务
     @Override
     public void createOrder(Order order) {
         // 创建订单逻辑
@@ -37,6 +37,7 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.createOrder(order);
         // 调用库存服务减少库存
         inventoryFeignClient.reduceInventory(order.getProductId(), order.getCount());
+        int i = 1/0;
     }
 
 }
