@@ -37,5 +37,7 @@ spring:
             - Header=X-Requested-With, XMLHttpRequest  # 当请求头中包含"X-Requested-With"并且值为"XMLHttpRequest"时,应用该路由规则
             # Query断言 根据请求的查询参数进行路由, 能够根据请求中的查询参数来路由请求
             - Query=param, value # 当请求的查询参数中包含名为"param"的参数,且值为"value"时,应用这个路由规则
+            # 使用自定义断言
+            - CustomHeader=myCustomHeader
           filters:
             - StripPrefix=1 # 从请求路径中删除一个前缀
